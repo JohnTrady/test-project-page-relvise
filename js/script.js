@@ -130,4 +130,23 @@ if (getInTouchSwiper) {
 
 
 
+/*========Burger==Menu==== */
+
+const iconMenu = document.querySelector('.menu__icon');
+const iconBody = document.querySelector('.menu__body');
+const logo = document.querySelector('.header__logo');
+
+
+iconMenu.addEventListener('click', e => {
+  document.body.classList.toggle('_lock');
+  iconBody.classList.toggle('_active');
+  logo.classList.toggle('_white');
+  iconMenu.classList.toggle('_active');
+
+  
+
+});
+
+
+
 
