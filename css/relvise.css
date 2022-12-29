@@ -246,7 +246,7 @@ li {
 
     }
 
-    .menu__body::before {
+    .menu::before {
       content: '';
       position: fixed;
       width: 100%;
