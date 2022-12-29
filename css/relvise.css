@@ -14,6 +14,7 @@ body {
 
 body._lock {
    overflow: hidden;
+   
 }
 
  a {
@@ -154,7 +155,7 @@ li {
       height: 10%;
       width: 100%;
       transition: all 0.3s ease 0s;
-      background-color: #000;
+      background-color:#F9F9F9;
 
   }
 
@@ -190,6 +191,10 @@ li {
   .menu__icon._active::after {
       bottom: 50%;
       transform: rotate(45deg)  translate(0px, 50%);
+  }
+
+  .header {
+   position: fixed;
   }
 
 
@@ -232,25 +237,85 @@ li {
       width: 100%;
       height: 100%;
       padding:100px 30px 30px 30px;
-      background-color:#0D5C63;
+      background-color:#F9F9F9;
       transition: all 0.3s ease 0s;
-      color: #F9F9F9;
+      color:#17213C;
+      overflow: auto;
+      
       
 
     }
 
+    .menu__body::before {
+      content: '';
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 70px;
+      background-color:#0D5C63;
+      z-index: 2;
+  } 
+
+
+  .menu__body._active::after {
+     content: '';
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: transparent;
+     z-index: -1;
+
+     
+  }
+
     .menu__body._active {
       right: 50%;
+      border-right: 1px solid #cbcbd8;
     }
+
+
+    .menu__item {
+      position: relative;
+      
+     
+   }
+   .menu__item::before {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 30px;
+      top: 0;
+      left: 0;
+      background-color: #0D5C63;
+      z-index: -1;
+      transition: all 0.8s ease 0s;
+   }
+
+
+   .menu__item:hover::before {
+      width: 100%;
+   }
+   
 
     .menu__link {
       font-size: 20px;
-      color: inherit;
+      color:#17213C;
    }
 
-   .header__logo._white {
+   .menu__link:hover {
+      color: #E6E6E6;
+      text-decoration: none;
+   }
+   
+
+   .header__logo{
       color: #F9F9F9;
    }
+
+    
 
  
 
@@ -265,6 +330,12 @@ li {
 
 .page {
    flex: 1 1 auto;
+   transform: translate(0, 0);
+   transition: all 0.3s ease 0s;
+}
+
+.page._shift {
+   transform: translate(50%, 0);
 }
 .page._active {
    position: relative;
@@ -1658,6 +1729,7 @@ li {
     flex: 0 1 16.666%;
     padding: 10px 15px;
     box-sizing: border-box;
+
     
 }
 
@@ -1683,8 +1755,8 @@ li {
 .footer__column:last-child {
    flex: 0 1 33.334%;
 }
-
-.footer__laber {
+.footer__label {
+  
    color: #FFFFFF;
    font-weight: 700;
    font-size: 16px;
@@ -1692,6 +1764,20 @@ li {
    letter-spacing: 0.1px;
    margin: 0px 0px 20px 0px;
 }
+
+.footer__laber {
+  
+   color: #FFFFFF;
+   font-weight: 700;
+   font-size: 16px;
+   line-height: 150%;
+   letter-spacing: 0.1px;
+   margin: 0px 0px 20px 0px;
+   
+}
+
+
+
 
 
 .menu-footer__item:not(:last-child) {
@@ -1775,6 +1861,20 @@ li {
       flex-direction: column;
 
    }
+
+
+   .footer__laber::after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 0;
+      transition: transform 0.5s ease 0s;
+      margin-left: 10px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #fff;
+   }
    
    
  }
@@ -1782,6 +1882,64 @@ li {
 .social-link:not(:last-child) {
     margin: 0px 20px 0px 0px;
 }
+
+
+@media (max-width: 699.98px) {
+
+   .footer__laber::after {
+      content: '';
+      width: 0;
+      height: 0;
+      transition: transform 0.5s ease 0s;
+      margin-left: 10px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #fff;
+   }
+
+   .footer__laber._active::after{
+      transform: rotate(180deg);
+   }
+   
+   .menu-footer {
+      height: 0px;
+      overflow: hidden;
+      transition: all 0.5s ease 0s;
+      
+   }
+   
+   
+   
+   
+   .menu-footer._active {
+      
+      height: 100%;
+   }
+
+}
+
+
+@media (max-width: 425px) {
+   .footer__column {
+      flex: 0 1 100%;
+   }
+
+   
+
+
+.footer__column:last-child {
+   flex: 0 1 33.334%;
+}
+
+.footer__laber {
+   font-size: 16px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+}
+
+
 
 
 

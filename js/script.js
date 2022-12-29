@@ -135,16 +135,35 @@ if (getInTouchSwiper) {
 const iconMenu = document.querySelector('.menu__icon');
 const iconBody = document.querySelector('.menu__body');
 const logo = document.querySelector('.header__logo');
-
+const page = document.querySelector('.page');
 
 iconMenu.addEventListener('click', e => {
+
   document.body.classList.toggle('_lock');
   iconBody.classList.toggle('_active');
-  logo.classList.toggle('_white');
   iconMenu.classList.toggle('_active');
+  page.classList.toggle('_shift');
 
-  
+});
 
+
+/* =====Menu=Footer */
+
+document.addEventListener('click', (e) => {
+const footerLabels = document.querySelectorAll('.footer__laber');
+// const footMenuArrows = document.querySelectorAll('.footer__menu-arrow');
+const footerMenu = document.querySelectorAll('.menu-footer');
+const targetElement = e.target;
+let currentActiveIndex;
+if(targetElement.closest('.footer__laber')) {
+  footerLabels.forEach((label , index) => {
+      if(label ===  targetElement) {
+       currentActiveIndex = index;
+      }
+  });
+  footerMenu[currentActiveIndex].classList.toggle('_active');
+  footerLabels[currentActiveIndex].classList.toggle('_active');
+};
 });
 
 
